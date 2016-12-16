@@ -8,12 +8,32 @@ MoEngage integration for analytics-ios.
 
 ## Installation
 
-Analytics is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your `Podfile`:
+To install the Segment-MoEngage integration, simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
 
 ```ruby
 pod "Segment-MoEngage"
 ```
+
+## Usage
+
+After adding the dependency, you must register the integration with our SDK.  To do this, import the MoEngage integration in your `AppDelegate`:
+
+```
+#import <Segment-MoEngage/SEGMoEngageIntegrationFactory.h>
+```
+
+And add the following lines:
+
+```
+NSString *const SEGMENT_WRITE_KEY = @" ... ";
+SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:SEGMENT_WRITE_KEY];
+
+[config use:[SEGMoEngageIntegrationFactory instance]];
+
+[SEGAnalytics setupWithConfiguration:config];
+
+```
+
 
 ## License
 
